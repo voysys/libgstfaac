@@ -1,6 +1,6 @@
 CC        := gcc
 CFLAGS    := -O2 -fPIC
-PROGRAM   := libgstrtmp.dll
+PROGRAM   := libgstfaac.dll
 
 INCLUDES  := \
 	-isystem /c/gstreamer/1.0/x86_64/lib/glib-2.0/include \
