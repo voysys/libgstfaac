@@ -14,6 +14,8 @@ DEFINES   := \
 	-DGST_PACKAGE_NAME=\""GStreamer Voysys git"\" \
 	-DGST_PACKAGE_ORIGIN=\""https://github.com/voysys/libgstfaac"\"
 
+LIBFLAGS  := \
+	-shared
 LIBDIR    := \
 	-Lfaac/libfaac/.libs \
 	-L/c/gstreamer/1.0/x86_64/lib
@@ -32,7 +34,7 @@ OBJECTS   := $(patsubst %.c, %.o, $(SOURCES))
 all: $(PROGRAM)
 
 $(PROGRAM): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(PROGRAM) -shared $(LIBDIR) $(LIBRARIES)
+	$(CC) $(OBJECTS) -o $(PROGRAM) $(LIBFLAGS) $(LIBDIR) $(LIBRARIES)
 
 $(OBJECTS): %.o : %.c $(HEADERS)
 	$(CC) -c $(CFLAGS) $(DEFINES) $(INCLUDES) -o $@ $<
